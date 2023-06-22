@@ -2,42 +2,39 @@ import React from 'react'
 import '../App.css';
 import logo from "./Images/logo.jpg"
 import { Link } from 'react-router-dom'
-import Middle from './Middle';
+
 const Navbar = () => {
+
+  const handleFeaturesClick = () => {
+    if (window.location.pathname === '/')
+      document.getElementById('features').scrollIntoView();
+  }
+
   return (
     <>
-
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-        <a className="navbar-brand ml-5" href="#">          <img className=" logo rounded-circle" src={logo} alt="" />
-        </a>
+        <Link className="navbar-brand ml-5" to="/">          <img className=" logo rounded-circle" src={logo} alt="" />
+        </Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse respo_nav navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ">
             <li className="nav-item active">
-              <a className="nav-link">
-                <Link className="fw-bolder ml-5  text-white active fs-3" to="/">Home</Link>
-              </a>
+              <Link className="nav-link fw-bolder ml-5  text-white active fs-3" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" >
-                <Link className="fw-bolder ml-5 text-white fs-3" to="/colleges">Colleges</Link>
-              </a>
+              <Link to='/#features' className="nav-link fw-bolder ml-5 text-white fs-3" onClick={handleFeaturesClick}>Our Features</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link">
-              <Link className="fw-bolder ml-5 text-white fs-3" to="/exams">Exams</Link>
-              </a>
+              <Link className="nav-link fw-bolder ml-5 text-white fs-3" to='/payment'>Join Mentorship</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                <Link className="fw-bolder ml-5 text-white active fs-3" to="/about">About</Link>
-              </a>
+              <Link className="nav-link fw-bolder ml-5 text-white active fs-3" to="/about">About Us</Link>
             </li>
           </ul>
         </div>
-      </nav>
+      </nav >
       {/* 
       <ul className=" p-3 nav_color nav justify-content-around align-items-center">
         <li className="nav-item">
@@ -78,15 +75,11 @@ const Navbar = () => {
         </li>
 
       </ul> */}
-      <div class="marquee-w">
+      <div div class="marquee-w" >
         <div class="marquee">
-          <span className=' fs-5 pt-2 fw-bolder'>Now boost your IIT preparation with IITians -  IIT-JAM , GATE , TIFR , NIMCET <a className="text-decoration-none text-warning" href="#scrollspyHeading1" >Click to know all Features and Benifits</a></span>
+          <span className=' fs-5 pt-2 fw-bolder'>Now boost your IIT preparation with IITians -  IIT-JAM , GATE , TIFR , NIMCET <Link className="text-decoration-none text-warning" to="/#features" onClick={handleFeaturesClick}>Click to know all Features and Benifits</Link></span>
         </div>
-        <div class="marquee marquee2">
-          <span className=' fs-5  fw-bolder'>Now boost your IIT preparation with IITians -  IIT-JAM , GATE , TIFR , NIMCET <a className="text-decoration-none " href="#">Click to know all Features and Benifits</a></span>
-        </div>
-      </div>
-
+      </div >
     </>
   )
 }
